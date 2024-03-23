@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { CiLocationOn } from "react-icons/ci";
+import { LuCircleDollarSign } from "react-icons/lu";
 
 const FeatureJob = ({ job }) => {
   const {
@@ -28,8 +30,14 @@ const FeatureJob = ({ job }) => {
         <button className="btn btn-primary btn-outline">{job_type}</button>
       </div>
       <div className="flex gap-4">
-        <p><span>{location}</span></p>
-        <p><span>{salary}</span></p>
+      <p className="flex items-center gap-1">
+              <CiLocationOn />
+              <span>{location}</span>
+            </p>
+            <p className="flex items-center gap-1">
+              <LuCircleDollarSign />
+              <span>{salary}</span>
+            </p>
       </div>
       <Link to={`/job/${id}`} className="btn btn-secondary">View Details</Link>
     </div>

@@ -1,10 +1,13 @@
 import PropTypes from "prop-types";
 import { useLoaderData, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import JobDetailsHeader from "../JobDetailsHeader/JobDetailsHeader";
+import {saveDataToLS} from '../../../src/utility/localStorage'
 
 const JobDetails = () => {
   const jobs = useLoaderData();
   const { id } = useParams();
-  
+
   const targetedJob = jobs.find((job) => job.id === parseInt(id));
 
   const {
@@ -21,22 +24,17 @@ const JobDetails = () => {
     educational_requirements,
     contact_information,
   } = targetedJob;
-  console.log(targetedJob);
+
+  const handelJobApplyBtn = () => {
+
+    saveDataToLS(parseInt(id));
+    toast.success('Job Application Sucessfull')
+  }
+
   return (
     <div>
-      <div className="py-20 bg-[#f9f9ff] md:flex justify-between items-center">
-        <img
-          className="hidden md:block"
-          src="/src/assets/images/banner-images/bg1.png"
-          alt=""
-        />
-        <h2 className="text-3xl font-bold text-center">Job Details</h2>
-        <img
-          className="hidden md:block"
-          src="/src/assets/images/banner-images/bg2.png"
-          alt=""
-        />
-      </div>
+      <JobDetailsHeader />
+
       <main className="space-y-4 lg:grid grid-cols-3 gap-6 py-7 container mx-auto px-4 items-center">
         <div className="col-span-2 space-y-3">
           <p>
@@ -75,7 +73,12 @@ const JobDetails = () => {
               <span>{contact_information?.address}</span>
             </p>
           </div>
-          <button className="btn btn-info w-full">Apply Now</button>
+          <button
+            onClick={handelJobApplyBtn}
+            className="btn btn-info w-full"
+          >
+            Apply Now
+          </button>
         </aside>
       </main>
     </div>
