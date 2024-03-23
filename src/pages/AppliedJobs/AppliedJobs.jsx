@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getDataFromLS } from "../../utility/localStorage";
 import AppliedJob from "../../components/AppliedJob/AppliedJob";
+import CommonHeader from "../../components/CommonHeader/CommonHeader";
 
 const AppliedJobs = () => {
   const [appliedJobs, setAppliedJobs] = useState([]);
-
   const jobs = useLoaderData();
+  console.log(jobs);
+
 
   useEffect(() => {
     const ids = getDataFromLS();
@@ -14,10 +16,11 @@ const AppliedJobs = () => {
       const items = jobs.filter((job) => ids.includes(job.id));
       setAppliedJobs(items);
     }
-  }, [jobs]);
+  }, []);
 
   return (
     <>
+      <CommonHeader title="Applied Jobs" />
       {appliedJobs.length ? (
         <div className="container mx-auto px-4 py-20">
           {appliedJobs.map((job) => (

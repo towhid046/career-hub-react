@@ -19,14 +19,14 @@ const AppliedJob = ({ job }) => {
   } = job;
 
   return (
-    <div className="flex justify-between p-5 border rounded items-center mb-5">
-      <div className="flex items-center gap-6">
+    <div className="flex flex-col md:flex-row gap-5 justify-between p-5 border rounded items-center mb-5">
+      <div className="flex flex-col md:flex-row items-center gap-6">
         <img
           className="bg-[#f9f9ff] px-5 py-12 rounded-lg max-h-40"
           src={logo}
           alt=""
         />
-        <div className="space-y-3">
+        <div className="space-y-3 flex flex-col items-center md:items-start">
           <h3 className="font-bold text-xl">{job_title}</h3>
           <p className="font-medium text-lg">{company_name}</p>
           <div className="flex gap-4">

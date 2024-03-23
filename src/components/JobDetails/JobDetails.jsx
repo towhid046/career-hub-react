@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import { useLoaderData, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import JobDetailsHeader from "../JobDetailsHeader/JobDetailsHeader";
 import {saveDataToLS} from '../../../src/utility/localStorage'
+import CommonHeader from './../CommonHeader/CommonHeader';
 
 const JobDetails = () => {
   const jobs = useLoaderData();
@@ -26,14 +26,13 @@ const JobDetails = () => {
   } = targetedJob;
 
   const handelJobApplyBtn = () => {
-
     saveDataToLS(parseInt(id));
-    toast.success('Job Application Sucessfull')
+    toast.success('Job Application Sucessfull!')
   }
 
   return (
     <div>
-      <JobDetailsHeader />
+      <CommonHeader title={'Job Details'} />
 
       <main className="space-y-4 lg:grid grid-cols-3 gap-6 py-7 container mx-auto px-4 items-center">
         <div className="col-span-2 space-y-3">
