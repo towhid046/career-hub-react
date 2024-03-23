@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const FeatureJob = ({ job }) => {
-  // console.log(job)
   const {
+    id,
     logo,
     company_name,
     experiences,
@@ -30,7 +31,7 @@ const FeatureJob = ({ job }) => {
         <p><span>{location}</span></p>
         <p><span>{salary}</span></p>
       </div>
-      <button className="btn btn-secondary">View Details</button>
+      <Link to={`/job/${id}`} className="btn btn-secondary">View Details</Link>
     </div>
   );
 };

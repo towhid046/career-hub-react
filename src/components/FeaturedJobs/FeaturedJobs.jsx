@@ -23,7 +23,7 @@ const FeaturedJobs = () => {
 
   const handelSeeAllJobs = () => {
     setJobLength(jobs.length);
-  }
+  };
 
   return (
     <div className="pb-16 container mx-auto px-4">
@@ -33,8 +33,10 @@ const FeaturedJobs = () => {
           <FeatureJob key={job.id} job={job} />
         ))}
       </div>
-      <div className={`text-center ${jobLength === jobs.length && 'hidden'}`}>
-        <button onClick={handelSeeAllJobs} className="btn btn-info mt-7">See All Jobs</button>
+      <div className={`text-center ${jobLength === jobs.length && "hidden"}`}>
+        <button onClick={handelSeeAllJobs} className="btn btn-info mt-7">
+          See All Jobs
+        </button>
       </div>
     </div>
   );

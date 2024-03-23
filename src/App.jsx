@@ -3,6 +3,8 @@ import Layout from "./Layout/Layout";
 import Home from "./pages/Home/Home";
 import AppliedJobs from "./pages/AppliedJobs/AppliedJobs";
 import Blogs from "./pages/Blog/Blogs";
+import JobDetails from './components/JobDetails/JobDetails';
+import NotFound from './pages/NotFound/NotFound';
 
 
 const App = () => {
@@ -10,7 +12,7 @@ const App = () => {
     {
       path: '/',
       element: <Layout/>,
-      errorElement: <div className="text-4xl font-bold">404 not found</div>,
+      errorElement: <NotFound/>,
       children: [
         {
           path: '/',
@@ -18,7 +20,12 @@ const App = () => {
         },
         {
           path: '/appliedjobs',
-          element: <AppliedJobs/>
+          element: <h2 className="flex justify-center items-center text-center px-4 h-[90vh] font-bold text-3xl text-gray-400">You have not applied any job yet!</h2>
+        },
+        {
+          path: '/job/:id',
+          loader: () => fetch(`jobs.json`),
+          element: <JobDetails/>
         },
         {
           path: '/blogs',

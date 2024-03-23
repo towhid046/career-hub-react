@@ -2,7 +2,6 @@
 const AppliedJobs = () => {
     return (
         <div>
-            Applied Jobs
         </div>
     );
 };
