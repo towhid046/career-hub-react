@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { CiLocationOn } from "react-icons/ci";
 import { LuCircleDollarSign } from "react-icons/lu";
+import { scrollToTop } from "../../utility/scrollToTop";
 
 const AppliedJob = ({ job }) => {
   const {
@@ -47,7 +48,7 @@ const AppliedJob = ({ job }) => {
           </div>
         </div>
       </div>
-      <Link to={`/job/${id}`} className="btn btn-info">
+      <Link onClick={scrollToTop} to={`/job/${id}`} className="btn btn-info">
         View Details
       </Link>
     </div>
