@@ -1,9 +1,9 @@
-import React from 'react';
+import LChart from './../../components/LChart/LChart';
 
 const Blogs = () => {
     return (
         <div>
-            Blogs
+            <LChart/>
         </div>
     );
 };
