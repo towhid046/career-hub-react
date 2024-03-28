@@ -7,6 +7,7 @@ import NotFound from "./pages/NotFound/NotFound";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AppliedJobs from "./pages/AppliedJobs/AppliedJobs";
+import Login from './pages/Login/Login';
 
 const App = () => {
   const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const App = () => {
           path: "/blogs",
           element: <Blogs />,
         },
+        {
+          path: '/sign-up',
+          element: <Login/>
+        }
       ],
     },
   ]);

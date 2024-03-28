@@ -8,7 +8,7 @@ const studentMarks = [
 
 const LChart = () => {
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="">
       <BarChart width={500} height={250} data={studentMarks}>
       <CartesianGrid strokeDasharray="3 3" />
         <Legend/>
